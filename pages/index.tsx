@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import withAuth from '../components/hoc/withAuth'
+import MainLayout from '../components/layout/main-layout'
 import { useAppDispatch } from '../hooks'
 import { IPrivateComponent } from '../interfaces/private-component.interface'
 import { removeUser } from '../store/auth/auth.slice'

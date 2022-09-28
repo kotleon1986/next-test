@@ -38,12 +38,8 @@ const withAuth = (Component: NextPageWithLayout) => {
             }
         }, [user, verifyInProgress, router, dispatch])
     
-        const Layout = Component.layout || MainLayout
-
         return user ? (
-            <Layout>
-                <Component {...props} user={user} />
-            </Layout>
+            <Component {...props} user={user} />
         ) : (
             verifyInProgress ? <div>Loading...</div> : null
         );
@@ -52,6 +48,8 @@ const withAuth = (Component: NextPageWithLayout) => {
     if (Component.getInitialProps) {
       Auth.getInitialProps = Component.getInitialProps
     }
+
+    Auth.layout = Component.layout || MainLayout
   
     return Auth;
   };
